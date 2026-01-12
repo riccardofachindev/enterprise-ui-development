@@ -12,11 +12,9 @@ import { KanbanBoard } from '$lib/kanban-board';
  * toThrowError: https://vitest.dev/api/expect.html#tothrowerror
  */
 
-it('should pass if the two numbers would add up correctly in a language other than JavaScript',
-  () => {
-    expect(0.2 + 0.1).toBeCloseTo(0.3);
-  },
-);
+it('should pass if the two numbers would add up correctly in a language other than JavaScript', () => {
+  expect(0.2 + 0.1).toBeCloseTo(0.3);
+});
 
 describe('createPerson', () => {
   it('should create an instance of a person', () => {
@@ -42,17 +40,14 @@ describe('Kanban Board', () => {
     expect(board.statuses).not.toContain('Bogus');
   });
 
-  it(
-    'should include an added status in board.statuses using #addStatus',
-    () => {
-      const board = new KanbanBoard('Things to Do');
-      expect.hasAssertions();
-      // Use board.addStatus to add a status.
-      // Verify that the new status is—in fact—now in board.statuses.
-      board.addStatus('In Review');
-      expect(board.statuses).toContain('In Review');
-    },
-  );
+  it('should include an added status in board.statuses using #addStatus', () => {
+    const board = new KanbanBoard('Things to Do');
+    expect.hasAssertions();
+    // Use board.addStatus to add a status.
+    // Verify that the new status is—in fact—now in board.statuses.
+    board.addStatus('In Review');
+    expect(board.statuses).toContain('In Review');
+  });
 
   it('should remove a status using #removeStatus', () => {
     const board = new KanbanBoard('Things to Do');
@@ -104,20 +99,18 @@ describe('Person', () => {
     expect(fn).toThrowError();
   });
 
-  it('will throw a specific error message if you provide an empty string',
-    () => {
-      const errorMessage = 'fullName cannot be an empty string';
+  it('will throw a specific error message if you provide an empty string', () => {
+    const errorMessage = 'fullName cannot be an empty string';
 
-      const fn = () => {
-        new Person('');
-      };
+    const fn = () => {
+      new Person('');
+    };
 
-      expect.hasAssertions();
+    expect.hasAssertions();
 
-      // Verify that function above throws the error message above.
-      expect(fn).toThrowError(errorMessage);
-    },
-  );
+    // Verify that function above throws the error message above.
+    expect(fn).toThrowError(errorMessage);
+  });
 
   it('will add a friend', () => {
     const john = new Person('John Lennon');

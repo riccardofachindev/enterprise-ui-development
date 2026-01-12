@@ -14,9 +14,7 @@ it('supports adding an item with the correct name', () => {
   expect.hasAssertions();
   const result = reducer([], add({ name: 'iPhone' }));
 
-  expect(result).toEqual([
-    expect.objectContaining({ name: 'iPhone' })
-  ])
+  expect(result).toEqual([expect.objectContaining({ name: 'iPhone' })]);
 });
 
 it('prefixes ids with "item-"', () => {
@@ -24,8 +22,8 @@ it('prefixes ids with "item-"', () => {
   const result = reducer([], add({ name: 'iPhone' }));
 
   expect(result).toEqual([
-    expect.objectContaining({ id: expect.stringContaining('item-') })
-  ])
+    expect.objectContaining({ id: expect.stringContaining('item-') }),
+  ]);
 });
 
 it('defaults new items to a packed status of false', () => {
@@ -47,7 +45,7 @@ it('supports removing an item', () => {
   ];
 
   const result = reducer(state, remove({ id: '1' }));
-  expect(result).not.toContain(expect.objectContaining({ id: '1' }))
+  expect(result).not.toContain(expect.objectContaining({ id: '1' }));
 });
 
 it('supports toggling an item', () => {
@@ -120,5 +118,5 @@ it('supports marking all items as unpacked', () => {
       name: 'iPhone Charger',
       packed: false,
     },
-  ])
+  ]);
 });
