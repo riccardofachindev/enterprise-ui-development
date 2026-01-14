@@ -9,4 +9,4 @@ it('should be accessile', async () => {
   const result = await axe(container);
 
   expect(result).toHaveNoViolations();
-})
+});
